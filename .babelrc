@@ -1,0 +1,4 @@
+// Tells babel how we want it to transform ES6 code into common JS for node to execute
+{
+    "presets":["@babel/preset-env"]
+}

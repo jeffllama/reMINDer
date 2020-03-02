@@ -1,0 +1,28 @@
+command line:
+
+--to install nodemon (which automatically restarts server whenever changes to files are made)
+$npm install --save-dev nodemon
+$npx nodemon --exec npx babel-node src/server.js
+--long to remember, add it to package.json scripts to make it easier, so you can just run npm start to do prev command
+
+mongodb commands
+-- creating database
+$use my-blog
+-- Collections can contain any number of json objects (documents), want to create collection articles , that contains articles info
+db.<collectionsname>
+$db.articles.insert([{ JSON OBJECT}])
+
+-- return db collections we made
+$db.articles.find({}) 
+-- return db but more readable
+$db.articles.find({}).pretty()
+-- to find articles that fit specific criteria
+db.articles.find({name:'learn-react'}).pretty()
+-- to find just one article that fits criteria, findOne already prints readable dont need pretty()
+db.articles.findOne({name: 'learn-react})
+
+
+To make changes to server:
+- Reminder -> making the changes, once done in CML, npm run build
+- copy and paste build file into reminder-backend(into src folder)
+- npm start reminder-backend just to check server works

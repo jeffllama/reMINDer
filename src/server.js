@@ -41,6 +41,16 @@ app.get('/api/articles/:name', async (req, res) => {
         res.status(200).json(articleInfo);
     }, res);
 });
+// Grabs the date of article from mongo server
+app.get('/api/articles/:name/date', async (req, res) => {
+    // Passing fnuction int owith DB that takes in an argument
+    withDB(async (db) => {
+        const articleName = req.params.name;
+        const articleInfo = await db.collection('articles').findOne({ name: articleName });
+        const date = articleInfo.date;
+        res.status(200).json(date);
+    }, res);
+});
 // Route for url parameter, gets name of article request is upvoting
 app.post('/api/articles/:name/upvote', async (req, res) => {
     withDB(async (db) => {
@@ -62,6 +72,7 @@ app.post('/api/articles/:name/upvote', async (req, res) => {
     // // Res.status to say everything went ok, gets the article name, status(200) says everything is ok
     // res.status(200).send(`${articleName} now has ${articlesInfo[articleName].upvotes} upvotes!`);
 });
+// API to downvote 
 app.post('/api/articles/:name/downvote', async (req, res) => {
     withDB(async (db) => {
         const articleName = req.params.name;

@@ -21,6 +21,10 @@ db.articles.find({name:'learn-react'}).pretty()
 -- to find just one article that fits criteria, findOne already prints readable dont need pretty()
 db.articles.findOne({name: 'learn-react})
 
+-- Update all articles in collection
+db.articles.updateMany(
+{},
+{ $set: {"date": "March 3rd, 2020"}})
 
 To make changes to server:
 - Reminder -> making the changes, once done in CML, npm run build

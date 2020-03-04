@@ -19,7 +19,7 @@ const withDB = async (operations, res) => {
         // First argument to connect, is url to database we want to connect to, mongodb auto runs on localhost:27017
         // Second argument is an options object, we can use to change certain parameters to mongoDB, have to set useNewUrlPaser:true
         // connect asynchronous returns a promise, have to use async await(to deal with promises), mongoClient returns client object to query from
-        const client = await MongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true });
+        const client = await MongoClient.connect('mongodb://localhost:27017',{useUnifiedTopology: true}, { useNewUrlParser: true });
         // db('<db name>')
         const db = client.db('reminder');
         // operations argument is the function, with our db variable

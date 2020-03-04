@@ -26,6 +26,10 @@ db.articles.updateMany(
 {},
 { $set: {"date": "March 3rd, 2020"}})
 
+db.articles.delete(
+{"name": "delete-me"}
+)
+
 To make changes to server:
 - Reminder -> making the changes, once done in CML, npm run build
 - copy and paste build file into reminder-backend(into src folder)

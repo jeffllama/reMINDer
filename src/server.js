@@ -42,6 +42,12 @@ app.get('/api/articles/:name', async (req, res) => {
     }, res);
 });
 // Grabs the date of article from mongo server
+// WORKFLOW to create API/integrate with frontend
+/* 1. Think about what resource you want to share (i.e. date)
+2. create API (various HTTP methods, get,post, put, patch, delete) 
+3. Use Postman and test server, that API fetch works
+4. Go to front end, and tie in component where used
+ */
 app.get('/api/articles/:name/date', async (req, res) => {
     // Passing fnuction int owith DB that takes in an argument
     withDB(async (db) => {
